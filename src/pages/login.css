@@ -1,0 +1,149 @@
+.login-container {
+  padding: 300px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: white;
+  background-image: linear-gradient(to left top,
+  #00073d, #020062,
+  #0024a8, #005fcb,
+  #0091cb,#55e5ff);
+    animation: degrade 4s infinite alternate;
+    background-size: 300% 100%;
+}
+
+@keyframes degrade {
+  0%{
+    background-position-x: 0%;
+  }
+  100%{
+    background-position-x: 100%;
+  }
+  
+}
+
+.back-to-home {
+  text-decoration: none;
+  align-items: center;
+  display: inline-flex;
+  position: absolute;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 10px;
+}
+
+.back-to-home img{
+  width: 20px;
+  height: 20px;
+  margin-right: 2.5px;
+}
+
+.back-to-home:hover{
+  text-decoration: underline;
+}
+
+.login-container form{
+  background: transparent; 
+  backdrop-filter: blur(6px);
+  width: 70%;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px ;
+  border-radius: 20px;
+
+}
+
+
+.form__group {
+  margin-bottom: 30px;
+  position: relative;
+  padding: 20px 0 0;
+  width: 100%;
+  max-width: 300px;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid white;
+  outline: 0;
+  font-size: 17px;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+  color: transparent;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 17px;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: white;
+  pointer-events: none;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #116399, #38caef);
+  border-image-slice: 1;
+}
+
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 17px;
+  color: #38caef;
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field:required, .form__field:invalid {
+  box-shadow: none;
+}
+
+.btn-log{
+  text-align: center;
+  height: 20%;
+  width: 40%;
+  background-color: #3D129B;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  border: solid 2px white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.login-container form p a{
+  color: #ff0;
+  text-decoration: none;
+}
+
+.login-container form p a:hover{
+  color: chartreuse;
+}
+
+
+  

@@ -1,0 +1,43 @@
+.user-container{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 50px;
+  gap: 2rem;
+  background: #333 ;
+  color: white;
+}
+
+.logo-user{
+  width: 60%;
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: solid 5px white ;
+  border-radius: 10%;
+}
+
+.data-user img{
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 55%;
+}
+
+.data-user{
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+  .logo-user{
+    flex-direction: column;
+  }
+}

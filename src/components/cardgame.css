@@ -1,0 +1,55 @@
+
+  
+  .card-container {
+    position: relative; /* importante para manter o tamanho dos cards, nao mexa nele*/
+    width: 190px;
+    height: 220px;
+    font-size: 12px;
+  }
+  
+  .card-container:hover .flip {
+    transform: rotateY(180deg);
+    border: solid 4px white;
+  }
+  
+  .flip {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: 0.5s;
+    border-radius: 25px;
+  }
+  
+  .front, .back {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px #222222;
+    backface-visibility: hidden;
+  }
+  
+  .front {
+    background-size: cover;
+  }
+  
+  .back {
+    background-color: blueviolet;
+    text-align: center;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 5px;
+  }
+
+  @media (max-width: 534px) {
+   .card-container{
+    width: 160px;
+    height: 180px;
+   }
+  }

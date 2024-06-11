@@ -1,0 +1,74 @@
+/* navbar.css */
+
+.navbar {
+  width: 100%;
+  background: #3586ff;
+  padding: 20px 50px;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+.navbar-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-title {
+  color: white;
+  font-size: 28px;
+  text-decoration: none; 
+}
+
+.navbar-subtitle {
+  color: blueviolet;
+  font-size: 18px;
+}
+
+.navbar-links li a {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-links li a:hover {
+  text-decoration: underline;
+  gap: 10px;
+}
+
+.options-user{
+  display: flex;
+
+}
+
+.favorite-logo{
+  width: 45px;
+}
+
+.login-button {
+  width: 100%;
+  min-width: 105px;
+  color: white;
+  background-color: blueviolet;
+  border-radius: 10px;
+  padding: 5px 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-button:hover{
+  background-color: black;
+  border: solid 2px white;
+}
+
+
+
+
+
