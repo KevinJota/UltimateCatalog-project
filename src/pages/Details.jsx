@@ -53,6 +53,7 @@ function Details() {
           </div>
         </div>
       </div>
+      <h4><strong>plataforma(s): {gameDetails.plataforma}</strong></h4>
       <h4> <strong>gênero: {gameDetails.genero}</strong></h4>
       <p>{gameDetails.description}</p>
       <h3>Confira logo abaixo o trailer do jogo:</h3>
