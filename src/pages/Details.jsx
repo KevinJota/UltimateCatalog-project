@@ -1,7 +1,6 @@
-// Details.jsx
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import './details.css';
+import './details.css'; // Manter o arquivo de estilos para outros estilos
 
 function Details() {
   const { id } = useParams();
@@ -13,19 +12,6 @@ function Details() {
       .then(data => setGameDetails(data))
       .catch(error => console.error('Erro ao buscar detalhes do jogo:', error));
   }, [id]);
-
-  const saveFavoriteGame = () => {
-    const favorites = JSON.parse(localStorage.getItem('favoriteGames')) || [];
-    const isAlreadyFavorite = favorites.some(favorite => favorite._id === gameDetails._id);
-
-    if (!isAlreadyFavorite) {
-      favorites.push(gameDetails);
-      localStorage.setItem('favoriteGames', JSON.stringify(favorites));
-      alert('Jogo salvo aos favoritos!');
-    } else {
-      alert('Jogo já está nos favoritos!');
-    }
-  };
 
   if (!gameDetails) {
     return (
@@ -71,10 +57,8 @@ function Details() {
       <p>{gameDetails.description}</p>
       <h3>Confira logo abaixo o trailer do jogo:</h3>
       <iframe src={gameDetails.trailerUrl}></iframe>
-      <button onClick={saveFavoriteGame}>Salvar</button>
     </div>
   );
 }
 
 export default Details;
-
