@@ -82,14 +82,6 @@
     margin-bottom: 50px;
 }
 
-.details-container button{
-  padding: 15px;
-  background-color: yellow;
-  color: black;
-  border-radius: 10px;
-  border: solid 2px black;
-}
-
 @media (max-width: 768px) {
     .game-data-main{
       flex-direction: column;
