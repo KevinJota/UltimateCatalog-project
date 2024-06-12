@@ -35,6 +35,26 @@
   color: white;
 }
 
+.no-favorites {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 50px;
+  margin-bottom: 20px;
+}
+
+.no-favorites img {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+.no-favorites h2 {
+  font-size: 18px;
+}
 
 @media (max-width: 768px) {
   .logo-user{

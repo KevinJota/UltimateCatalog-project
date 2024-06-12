@@ -4,10 +4,11 @@ import CardGame from './components/CardGame';
 import { BiSearchAlt2 } from "react-icons/bi";
 
 function App() {
-  const [recentGames, setRecentGames] = useState([]);
+
   const [loading, setLoading] = useState(true);
+  const [recentGames, setRecentGames] = useState([]);
   const [mobileGames, setMobileGames] = useState([]);
-  const [games2018, setGames2018] = useState([]);
+  const [gamesAno, setGamesAno] = useState([]);
 
   useEffect(() => {
     // Fetch para pegar todos os jogos e inverter a ordem para mostrar os mais recentes primeiro
@@ -15,22 +16,22 @@ function App() {
       .then(response => response.json())
       .then(data => {
         const reversedData = data.reverse();
-        const limitedRecentGames = reversedData.slice(0, 5); // Limita a 5 jogos
+        const limitedRecentGames = reversedData.slice(0, 6); // limite para exibir apenas 6 jogos da api
         setRecentGames(limitedRecentGames);
         setLoading(false);
       })
       .catch(error => console.error(error));
 
-    // Fetch para jogos de luta
+    // Fetch para jogos de plataforma mobile
     fetch('https://api-ultimate-catalog.onrender.com/game/plataforma/mobile')
       .then(response => response.json())
       .then(data => setMobileGames(data))
       .catch(error => console.error(error));
 
-    // Fetch para jogos lançados em 2018
+    // Fetch para jogos lançados em 2024
     fetch('https://api-ultimate-catalog.onrender.com/game/ano/2024')
       .then(response => response.json())
-      .then(data => setGames2018(data))
+      .then(data => setGamesAno(data))
       .catch(error => console.error(error));
   }, []);
 
@@ -101,7 +102,7 @@ function App() {
 
       <h2>Jogos Lançados em 2024:</h2>
       <div className="games-container">
-        {games2018.map(game => (
+        {gamesAno.map(game => (
           <CardGame
             key={game._id}
             id={game._id}
