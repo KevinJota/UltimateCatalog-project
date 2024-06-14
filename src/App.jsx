@@ -64,24 +64,6 @@ function App() {
     <div className="app">
       <SearchBar /> {/* Adicione a barra de busca aqui */}
 
-      <div className="filters">
-        <select name="Opcoes" id="caixa_options">
-          <option value="ano">Todos os anos</option>
-          <option value="2022">2022</option>
-          <option value="2023">2023</option>
-        </select>
-        <select name="Opcoes" id="caixa_options">
-          <option value="plataforma">Todas as plataformas</option>
-          <option value="PS4">PS4</option>
-          <option value="PS5">PS5</option>
-        </select>
-        <select name="Opcoes" id="caixa_options">
-          <option value="genero">Todos os gêneros</option>
-          <option value="acao">Ação</option>
-          <option value="rpg">RPG</option>
-        </select>
-      </div>
-
       <h2>Jogos Recentemente Adicionados ao catálogo</h2>
       <div className="games-container">
         {recentGames.map(game => (
