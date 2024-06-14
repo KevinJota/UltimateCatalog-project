@@ -1,0 +1,85 @@
+/* search.css */
+.search-page {
+    box-sizing: border-box;
+    padding: 50px;
+    gap: 2rem;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    color: white;
+  }
+  
+  .search-bar-wrapper {
+    margin-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .no-results-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+  }
+  
+  .no-results-container img {
+    width: 100px;
+  }
+
+  .search-results-message {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px 50px;
+  }
+  
+  
+  .busca-form {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .busca-form input {
+    color: #333;
+    text-align: center;
+    width: 50%;
+    max-width: 400px;
+    height: 40px;
+    border-radius: 15px;
+    font-size: 16px;
+    padding: 0 10px 0 10px;
+  }
+  
+  
+  .busca-form input::placeholder {
+    width: 100%;
+    text-align: center;
+    font-size: 80%;
+  }
+  
+  .busca-form button {
+    background-color: blueviolet;
+    border-radius: 4px;
+    color: #000;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+    max-width: 80px;
+    border: 2px solid black;
+  }
+  
+  .busca-form button:hover{
+    color: #fff;
+    background-color: #000;
+    border: 2px solid white;
+  }  
+  

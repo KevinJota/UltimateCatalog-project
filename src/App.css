@@ -1,51 +1,10 @@
 
 
-.busca-form {
-  display: flex;
-  gap: 5px;
-  width: 50%;
-}
-
-.busca-form input {
-  color: #333;
-  text-align: center;
-  width: 100%;
-  height: 40px;
-  border-radius: 15px;
-  font-size: 16px;
-  padding: 0 10px 0 10px;
-}
-
-
-.busca-form input::placeholder {
-  width: 100%;
-  text-align: center;
-  font-size: 16px;
-}
-
-.busca-form button {
-  background-color: blueviolet;
-  border-radius: 4px;
-  color: #000;
-  padding: 0.5rem;
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.busca-form button:hover{
-  color: #fff;
-  background-color: #000;
-  border: 2px solid white;
-
-}/* tudo que esta acima disso é o css da barra de pesquisa */
-
 .app {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
   box-sizing: border-box;
   padding: 50px;
@@ -72,11 +31,22 @@
   width: 50%;
 }
 
+#view-more{
+  width: 10%;
+  min-width: 80px;
+  color: white;
+  background-color: rgb(0, 102, 255);
+  border-radius: 10px;
+  padding: 5px 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 .games-container {
   display: grid;
   place-items: center;
   grid-template-columns: repeat(auto-fill, minmax(160px, 4fr));
-  grid-gap: 80px;
+  grid-gap: 75px;
   padding: 1rem;
   max-width: 100%;
   margin: 0 auto;
@@ -90,4 +60,23 @@
     grid-gap: 45px;
   }
 }
+
+@media (max-width: 1467px) {
+  .games-container{
+    max-width: 65%;
+  }
+}
+
+@media (max-width: 1120px) {
+  .games-container{
+   max-width: 80%;
+  }
+}
+
+@media (max-width: 664px) {
+  .games-container{
+   max-width: 100%;
+  }
+}
+
 
