@@ -1,36 +1,73 @@
-// CardGame.jsx
+/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './cardgame.css';
 
-// eslint-disable-next-line react/prop-types
-const CardGame = ({ id, title, description, imageUrl, updateFavorites }) => {
+const CardGame = ({ id, title, description, imageUrl, onUnfavorite }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem('favoriteGames')) || [];
-    const isAlreadyFavorite = favorites.some(favorite => favorite.id === id);
-    setIsFavorite(isAlreadyFavorite);
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      setIsFavorite(user.favoriteGames.includes(id));
+    }
   }, [id]);
 
-  const toggleFavorite = (e) => {
+  const toggleFavorite = async (e) => {
     e.preventDefault(); // Previne a navegação ao clicar no ícone
-    const favorites = JSON.parse(localStorage.getItem('favoriteGames')) || [];
-    const isAlreadyFavorite = favorites.some(favorite => favorite.id === id);
 
-    let updatedFavorites;
-    if (isAlreadyFavorite) {
-      updatedFavorites = favorites.filter(favorite => favorite.id !== id);
-      setIsFavorite(false);
-    } else {
-      const newFavorite = { id, title, description, imageUrl };
-      updatedFavorites = [...favorites, newFavorite];
-      setIsFavorite(true);
+    const storedUser = localStorage.getItem('user');
+    if (!storedUser) {
+      alert('Você precisa estar logado para favoritar jogos.');
+      return;
     }
 
-    localStorage.setItem('favoriteGames', JSON.stringify(updatedFavorites));
-    if (updateFavorites) {
-      updateFavorites(updatedFavorites);
+    const user = JSON.parse(storedUser);
+    try {
+      if (isFavorite) {
+        const response = await fetch(`https://api-ultimate-catalog.onrender.com/user/${user._id}/favorites/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error('Erro ao desfavoritar o jogo');
+        }
+
+        setIsFavorite(false);
+
+        // Chamar a função onUnfavorite passada como prop
+        if (onUnfavorite) {
+          onUnfavorite(id);
+        }
+      } else {
+        const response = await fetch(`https://api-ultimate-catalog.onrender.com/user/${user._id}/favorites/${id}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error('Erro ao favoritar o jogo');
+        }
+
+        setIsFavorite(true);
+      }
+
+      // Atualiza o localStorage
+      const updatedFavorites = isFavorite
+        ? user.favoriteGames.filter(gameId => gameId !== id)
+        : [...user.favoriteGames, id];
+      const updatedUser = { ...user, favoriteGames: updatedFavorites };
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+    } catch (error) {
+      console.error('Erro ao favoritar/desfavoritar o jogo:', error);
     }
   };
 
@@ -63,4 +100,5 @@ const CardGame = ({ id, title, description, imageUrl, updateFavorites }) => {
 };
 
 export default CardGame;
+
 

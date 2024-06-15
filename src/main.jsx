@@ -5,6 +5,7 @@ import App from './App.jsx';
 import Navbar from './components/navbar.jsx';
 import Footer from './components/footer.jsx';
 import Login from './pages/login.jsx';
+import CreateLogin from './pages/CreateLogin';
 import User from './pages/User.jsx';
 import Search from './pages/Search.jsx'; // Importe a nova página de pesquisa
 import './index.css';
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           }
         />
         <Route path="/login" element={<Login />} />
+        <Route path="/create" element={<CreateLogin />} />
         <Route
           path="/User"
           element={
