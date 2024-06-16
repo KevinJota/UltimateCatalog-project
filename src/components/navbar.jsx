@@ -11,18 +11,19 @@ function Navbar() {
     setIsLoggedIn(!!token);
   }, []);
 
-  const handleLogout = () => {
+  const deslogar = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     setIsLoggedIn(false);
     navigate('/');
+    window.location.reload();
   };
 
   return (
     <nav className="navbar">
       <ul className="navbar-links">
         <li className='main-title'>
-          <Link to="/" className="navbar-link">
+          <Link to="/" className="title-link">
             <h2 className="navbar-subtitle">Ultimate Catalog</h2>
             <h1 className="navbar-title">SeeMy Games</h1>
           </Link>
@@ -36,7 +37,7 @@ function Navbar() {
             style={{ cursor: 'pointer' }}
           />
           {isLoggedIn ? (
-            <button className="logout-button" onClick={handleLogout}>
+            <button className="logout-button" onClick={deslogar}>
               Log Out
             </button>
           ) : (

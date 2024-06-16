@@ -60,6 +60,14 @@
   margin: 50px;
 }
 
+.login-container form h3{
+  padding-bottom: 10px;
+}
+
+.login-container strong{
+  color: #ff0;
+}
+
 
 .form__group {
   margin-bottom: 30px;

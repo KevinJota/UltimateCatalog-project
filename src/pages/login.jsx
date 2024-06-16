@@ -38,6 +38,7 @@ function Login() {
       </Link>
       <div className="login-container">
         <form onSubmit={handleLogin}>
+          <h3>Conecte-se agora a sua conta <strong>SeeMy Games</strong> e acesse os recursos disponiveis em nosso site!</h3>
           <div className="form__group field">
             <input type="email" className="form__field" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
             <label htmlFor="email" className="form__label">Email</label>

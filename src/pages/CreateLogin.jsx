@@ -9,16 +9,15 @@ function CreateLogin() {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
-  const handleCreateAccount = async (e) => {
+  const criarConta = async (e) => {
     e.preventDefault();
 
-    // Validar a senha com no mínimo 8 caracteres
     if (password.length < 8) {
       setErrors({ password: 'A senha deve ter pelo menos 8 caracteres.' });
       return;
     }
 
-    // Limpar erros de validação anteriores
+    // Limpar erros de validação de antws
     setErrors({});
 
     try {
@@ -54,8 +53,8 @@ function CreateLogin() {
         <img src="https://cdn-icons-png.flaticon.com/128/45/45699.png" alt="Back to home" /> Retornar à página inicial
       </Link>
       <div className="login-container">
-        <form onSubmit={handleCreateAccount}>
-          <h3>Crie sua nova conta SeemyGames!</h3>
+        <form onSubmit={criarConta}>
+          <h3>Crie sua nova conta <strong>SeeMy Games!</strong></h3>
           <div className="form__group field">
             <input
               type="text"

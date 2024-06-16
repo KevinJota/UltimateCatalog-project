@@ -1,4 +1,4 @@
-/* index.css */
+
 html, body, #root {
   height: 100%;
   margin: 0;
@@ -26,3 +26,58 @@ body {
   width: 100%;
 }
 
+
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 240vh;
+  color: #fff;
+  margin: 12rem;
+}
+.loading-container img {
+  width: 140px;
+}
+.loading-container p {
+  margin-top: 10px;
+}
+
+/* STYLE De DIV importante QUE ARMAZENA OS JOGOS */
+.games-container {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 4fr));
+  grid-gap: 75px;
+  padding: 1rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+@media (max-width: 1467px) {
+  .games-container{
+    max-width: 65%;
+  }
+}
+
+@media (max-width: 1120px) {
+  .games-container{
+   max-width: 80%;
+  }
+}
+
+@media (max-width: 664px) {
+  .games-container{
+   max-width: 100%;
+  }
+}
+
+@media (max-width: 534px) {
+  .games-container{
+    grid-template-columns: repeat(auto-fill, minmax(120px, 2fr));
+    padding: 0;
+    grid-gap: 45px;
+  }
+}

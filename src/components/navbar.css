@@ -6,7 +6,7 @@
   padding: 20px 50px;
 }
 
-.navbar-link {
+.title-link {
   text-decoration: none;
   color: inherit;
 }
@@ -68,7 +68,8 @@
   background-color: red;
 }
 
-
-
-
-
+@media (max-width: 390px) {
+  .navbar-links{
+    flex-direction: column;
+  }
+}

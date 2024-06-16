@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import './details.css'; // Manter o arquivo de estilos para outros estilos
+import './details.css';
+import Loading from '../components/Loading';
 
 function Details() {
   const { id } = useParams();
@@ -15,10 +16,7 @@ function Details() {
 
   if (!gameDetails) {
     return (
-      <div className="loading-container">
-        <img src="https://i.pinimg.com/originals/8c/ca/f4/8ccaf44f2a5af2e59dc72decab31a6b8.gif" alt="Loading" />
-        <p>Carregando.. aguarde</p>
-      </div>
+      <Loading/>
     );
   }
 

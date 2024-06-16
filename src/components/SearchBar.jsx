@@ -5,14 +5,14 @@ import "../pages/search.css"
 function SearchBar() {
   const navigate = useNavigate();
 
-  const handleSearch = (event) => {
+  const buscar = (event) => {
     event.preventDefault();
     const searchQuery = event.target.elements.searchInput.value;
     navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
   };
 
   return (
-    <form className="busca-form" onSubmit={handleSearch}>
+    <form className="busca-form" onSubmit={buscar}>
       <input
         type="text"
         name="searchInput"

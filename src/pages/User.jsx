@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './user.css';
 import CardGame from '../components/CardGame';
+import Loading from '../components/Loading';
 
 function User() {
   const [user, setUser] = useState(null);
   const [favoriteGames, setFavoriteGames] = useState([]);
-  const [loading, setLoading] = useState(true); // Estado para controle de carregamento
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,7 +17,7 @@ function User() {
       setUser(user);
       fetchFavoriteGames(user._id);
     } else {
-      navigate('/login'); // Redirecionar para o login se o usuário não estiver logado
+      navigate('/login');
     }
   }, [navigate]);
 
@@ -35,9 +36,9 @@ function User() {
       const games = await response.json();
       setFavoriteGames(games);
     } catch (error) {
-      console.error('Erro ao buscar jogos favoritos:', error);
+      console.error(error);
     } finally {
-      setLoading(false); // Marcar o carregamento como concluído, independentemente do resultado
+      setLoading(false);
     }
   };
 
@@ -47,10 +48,7 @@ function User() {
 
   if (loading) {
     return (
-      <div className="loading-container">
-        <img src="https://i.pinimg.com/originals/66/89/dc/6689dc331be27e66349ce9a4d15ddff3.gif" alt="Loading" />
-        <p>Carregando... aguarde</p>
-      </div>
+      <Loading/>
     );
   }
 

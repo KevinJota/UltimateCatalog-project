@@ -5,6 +5,7 @@ import './cardgame.css';
 
 const CardGame = ({ id, title, description, imageUrl, onUnfavorite }) => {
   const [isFavorite, setIsFavorite] = useState(false);
+  const [showLoginAlert, setShowLoginAlert] = useState(false); // Estado para controlar a exibição do alerta
 
   useEffect(() => {
     const storedUser = localStorage.getItem('user');
@@ -19,7 +20,7 @@ const CardGame = ({ id, title, description, imageUrl, onUnfavorite }) => {
 
     const storedUser = localStorage.getItem('user');
     if (!storedUser) {
-      alert('Você precisa estar logado para favoritar jogos.');
+      setShowLoginAlert(true); // Exibe o alerta personalizado
       return;
     }
 
@@ -79,26 +80,34 @@ const CardGame = ({ id, title, description, imageUrl, onUnfavorite }) => {
   };
 
   return (
-    <Link to={`/details/${id}`} className="card-link">
-      <div className="card-container">
-        <div className="flip">
-          <div className="front" style={{ backgroundImage: `url(${imageUrl})` }}></div>
-          <div className="back">
-            <h3>{title}</h3>
-            <p>{truncateDescription(description, 75)}</p>
+    <>
+      {showLoginAlert && (
+        <div className="alerta-fundo">
+          <div className="alerta-box">
+            <p>Você precisar estar logado em sua conta para favoritar jogos.</p>
+            <button onClick={() => setShowLoginAlert(false)}>Ok</button>
           </div>
         </div>
-        <img
-          src="https://cdn-icons-png.flaticon.com/128/4886/4886281.png"
-          alt="Favorite"
-          className={`favorite-icon ${isFavorite ? 'favorite-active' : ''}`}
-          onClick={toggleFavorite}
-        />
-      </div>
-    </Link>
+      )}
+      <Link to={`/details/${id}`} className="card-link">
+        <div className="card-container">
+          <div className="flip">
+            <div className="front" style={{ backgroundImage: `url(${imageUrl})` }}></div>
+            <div className="back">
+              <h3>{title}</h3>
+              <p>{truncateDescription(description, 75)}</p>
+            </div>
+          </div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/4886/4886281.png"
+            alt="Favorite"
+            className={`favorite-icon ${isFavorite ? 'favorite-active' : ''}`}
+            onClick={toggleFavorite}
+          />
+        </div>
+      </Link>
+    </>
   );
 };
 
 export default CardGame;
-
-

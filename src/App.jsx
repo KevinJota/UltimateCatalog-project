@@ -1,21 +1,23 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import CardGame from './components/CardGame';
-import SearchBar from './components/SearchBar'; // Importe a SearchBar
+import SearchBar from './components/SearchBar';
+import Loading from './components/Loading';
 
 function App() {
   const [recentGames, setRecentGames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mobileGames, setMobileGames] = useState([]);
-  const [games2018, setGames2018] = useState([]);
+  const [games2024, setGames2024] = useState([]);
   const [psGames, setPsGames] = useState([]);
   const [switchGames, setSwitchGames] = useState([]);
   const [showMoreMobile, setShowMoreMobile] = useState(false);
   const [showMorePS, setShowMorePS] = useState(false);
   const [showMoreSwitch, setShowMoreSwitch] = useState(false);
+  const [showMore2024, setShowMore2024] = useState(false);
 
   useEffect(() => {
-    // Fetch para pegar todos os jogos e inverter a ordem para mostrar os mais recentes primeiro
+    // isso aqui é fetch p/ jogos mais recentes adicionados ao catalog
     fetch('https://api-ultimate-catalog.onrender.com/game')
       .then(response => response.json())
       .then(data => {
@@ -35,16 +37,16 @@ function App() {
     // Fetch para jogos lançados em 2024
     fetch('https://api-ultimate-catalog.onrender.com/game/ano/2024')
       .then(response => response.json())
-      .then(data => setGames2018(data))
+      .then(data => setGames2024(data))
       .catch(error => console.error(error));
 
-    // Fetch para jogos de plataformas PlayStation
+    // Fetch para jogos de plataforma PlayStation
     fetch('https://api-ultimate-catalog.onrender.com/game/plataforma/ps')
       .then(response => response.json())
       .then(data => setPsGames(data))
       .catch(error => console.error(error));
 
-    // Fetch para jogos de plataformas Switch
+    // Fetch para jogos de plataforma Switch
     fetch('https://api-ultimate-catalog.onrender.com/game/plataforma/switch')
       .then(response => response.json())
       .then(data => setSwitchGames(data))
@@ -53,10 +55,7 @@ function App() {
 
   if (loading) {
     return (
-      <div className="loading-container">
-        <img src="https://i.pinimg.com/originals/66/89/dc/6689dc331be27e66349ce9a4d15ddff3.gif" alt="Loading" />
-        <p>Carregando... aguarde</p>
-      </div>
+      <Loading/>
     );
   }
 
@@ -94,7 +93,7 @@ function App() {
 
       <h2>Jogos Lançados em 2024:</h2>
       <div className="games-container">
-        {games2018.map(game => (
+        {games2024.slice(0, showMore2024 ? games2024.length : 6).map(game => (
           <CardGame
             key={game._id}
             id={game._id}
@@ -104,6 +103,9 @@ function App() {
           />
         ))}
       </div>
+      <button id='view-more' onClick={() => setShowMore2024(!showMore2024)}>
+        {showMore2024 ? 'Ver Menos' : 'Ver Mais'}
+      </button>
 
       <h2>Jogos para PlayStation</h2>
       <div className="games-container">
@@ -141,3 +143,4 @@ function App() {
 }
 
 export default App;
+

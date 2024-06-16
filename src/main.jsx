@@ -7,7 +7,7 @@ import Footer from './components/footer.jsx';
 import Login from './pages/login.jsx';
 import CreateLogin from './pages/CreateLogin';
 import User from './pages/User.jsx';
-import Search from './pages/Search.jsx'; // Importe a nova página de pesquisa
+import Search from './pages/Search.jsx'; 
 import './index.css';
 import Details from './pages/Details.jsx';
 
@@ -52,7 +52,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           element={
             <>
               <Navbar />
-              <Search /> {/* Adicione a nova rota de pesquisa */}
+              <Search />
               <Footer />
             </>
           }

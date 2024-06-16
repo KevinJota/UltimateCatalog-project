@@ -42,41 +42,6 @@
   cursor: pointer;
 }
 
-.games-container {
-  display: grid;
-  place-items: center;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 4fr));
-  grid-gap: 75px;
-  padding: 1rem;
-  max-width: 100%;
-  margin: 0 auto;
-}
 
-
-@media (max-width: 534px) {
-  .games-container{
-    grid-template-columns: repeat(auto-fill, minmax(120px, 2fr));
-    padding: 0;
-    grid-gap: 45px;
-  }
-}
-
-@media (max-width: 1467px) {
-  .games-container{
-    max-width: 65%;
-  }
-}
-
-@media (max-width: 1120px) {
-  .games-container{
-   max-width: 80%;
-  }
-}
-
-@media (max-width: 664px) {
-  .games-container{
-   max-width: 100%;
-  }
-}
 
 

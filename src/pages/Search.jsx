@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import CardGame from '../components/CardGame';
 import SearchBar from '../components/SearchBar';
-import './search.css'; // Certifique-se de ter um arquivo CSS para estilizar o componente
-
+import './search.css';
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
 };
@@ -33,7 +32,7 @@ const Search = () => {
         const data = await response.json();
         
         setSearchResults(data);
-        setFilteredResults(data); // Inicialmente, os resultados filtrados são iguais aos resultados da pesquisa
+        setFilteredResults(data);
         setFiltersApplied(false);
       } catch (error) {
         console.error('Erro ao buscar os jogos:', error);
@@ -86,6 +85,7 @@ const Search = () => {
           <option value="PS5">PS5</option>
           <option value="Switch">Switch</option>
           <option value="Xbox One">Xbox One</option>
+          <option value="Xbox Series">Xbox Series X/S</option>
           <option value="PC">PC</option>
           <option value="Mobile">Mobile</option>
         </select>
@@ -95,6 +95,12 @@ const Search = () => {
           <option value="RPG">RPG</option>
           <option value="Aventura">Aventura</option>
           <option value="Estratégia">Estratégia</option>
+          <option value="Battle Royale">BattleRoyale</option>
+          <option value="Simulação">Simulaçâo</option>
+          <option value="Sobrevivência">Sobrevivência</option>
+          <option value="tiro">Tiro</option>
+          <option value="luta">Luta</option>
+          <option value="corrida">Corrida</option>
         </select>
         </div>
         <button onClick={applyFilters} className="btn-filter">Adicionar Filtro</button>
