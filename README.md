@@ -42,9 +42,7 @@ src/
 2. **Instale as dependências:**
 
    ```bash
-   npm install
-   # ou
-   yarn install
+   npm run dev
    ```
 
 3. **Inicie a aplicação:**
@@ -57,7 +55,7 @@ src/
 
 4. **Acesse a aplicação:**
 
-   A aplicação estará disponível em `http://localhost:3000` no seu navegador.
+   A aplicação estará disponível em `http://localhost:5173` no seu navegador.
 
 ## Funcionalidades Principais
 
