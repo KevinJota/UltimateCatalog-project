@@ -13,7 +13,7 @@ function Footer() {
       </div>
       <ul className="menu">
         <li className="menu__item"><Link className="menu__link" to="/">Home</Link></li>
-        <li className="menu__item"><a className="menu__link" href="https://github.com/KevinJota/UltimateCatalog-project">Github</a></li>
+        <li className="menu__item"><a className="menu__link" href="https://github.com/KevinJota/UltimateCatalog-project" target="_blank" rel="noopener noreferrer">Github</a></li>
       </ul>
       <p>&copy;2024 Seemy_Games</p>
     </footer>
