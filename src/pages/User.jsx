@@ -48,7 +48,7 @@ function User() {
   if (loading) {
     return (
       <div className="loading-container">
-        <img src="https://i.pinimg.com/originals/45/40/cf/4540cfd8909197c2559dd30a7234f63e.gif" alt="Loading" />
+        <img src="https://i.pinimg.com/originals/66/89/dc/6689dc331be27e66349ce9a4d15ddff3.gif" alt="Loading" />
         <p>Carregando... aguarde</p>
       </div>
     );

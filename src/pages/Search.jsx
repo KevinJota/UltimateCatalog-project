@@ -73,6 +73,7 @@ const Search = () => {
       </div>
 
       <div className="filters">
+        <div className="option-filters">
         <select name="ano" value={filters.ano} onChange={(e) => setFilters({ ...filters, ano: e.target.value })}>
           <option value="Todos os anos">Todos os anos</option>
           {Array.from({ length: 12 }, (_, i) => 2013 + i).map(year => (
@@ -95,6 +96,7 @@ const Search = () => {
           <option value="Aventura">Aventura</option>
           <option value="Estratégia">Estratégia</option>
         </select>
+        </div>
         <button onClick={applyFilters} className="btn-filter">Adicionar Filtro</button>
       </div>
 

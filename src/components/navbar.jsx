@@ -36,7 +36,7 @@ function Navbar() {
             style={{ cursor: 'pointer' }}
           />
           {isLoggedIn ? (
-            <button className="login-button" onClick={handleLogout}>
+            <button className="logout-button" onClick={handleLogout}>
               Log Out
             </button>
           ) : (

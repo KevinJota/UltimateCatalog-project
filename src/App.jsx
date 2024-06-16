@@ -63,7 +63,6 @@ function App() {
   return (
     <div className="app">
       <SearchBar /> 
-
       <h2>Jogos Recentemente Adicionados ao catálogo</h2>
       <div className="games-container">
         {recentGames.map(game => (

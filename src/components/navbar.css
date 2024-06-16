@@ -24,23 +24,19 @@
 
 .navbar-title {
   color: white;
-  font-size: 28px;
-  text-decoration: none; 
+  font-size: 22px;
+  text-decoration: none;
 }
 
 .navbar-subtitle {
   color: blueviolet;
-  font-size: 18px;
+  font-size: 16px;
+  text-decoration: none;
 }
 
 .navbar-links li a {
   color: white;
   text-decoration: none;
-}
-
-.navbar-links li a:hover {
-  text-decoration: underline;
-  gap: 10px;
 }
 
 .options-user{
@@ -52,7 +48,7 @@
   width: 45px;
 }
 
-.login-button {
+.login-button, .logout-button {
   width: 100%;
   min-width: 105px;
   color: white;
@@ -66,6 +62,10 @@
 .login-button:hover{
   background-color: black;
   border: solid 2px white;
+}
+
+.logout-button{
+  background-color: red;
 }
 
 
