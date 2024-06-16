@@ -42,15 +42,13 @@ src/
 2. **Instale as dependências:**
 
    ```bash
-   npm run dev
+   npm install
    ```
 
 3. **Inicie a aplicação:**
 
    ```bash
-   npm start
-   # ou
-   yarn start
+   npm run dev
    ```
 
 4. **Acesse a aplicação:**
