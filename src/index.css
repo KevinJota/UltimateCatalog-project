@@ -81,3 +81,11 @@ body {
     grid-gap: 45px;
   }
 }
+
+@media (max-width: 385px) {
+  .games-container{
+    grid-template-columns: repeat(auto-fill, minmax(110px, 2fr));
+    padding: 0;
+    grid-gap: 25px;
+  }
+}
