@@ -76,6 +76,12 @@
   }
 }
 
+@media (max-width: 385px) {
+  .card-container {
+    width: 145px;
+    height: 165px;
+  }
+
 
 .alerta-fundo {
   position: fixed;
